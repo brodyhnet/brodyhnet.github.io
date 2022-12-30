@@ -3,14 +3,25 @@
         <title>brodyh.net</title>
     </head>
     <body>
-        <h1><u>brodyh.net</u></h1>
-        <br>
+        <h1 id = "title"><u>brodyh.net</u></h1>
         <a href=/nick>nick</a>
-        <br>
-        <br>
+        <br><br>
         <a href=/nick/info>nick info</a>
-        <br>
-        <br>
+        <br><br>
         <a href=/beat.html>beat</a>
+        <br><br><br><br>
+        <button type="text" onclick="switchMode()">toggle dark mode</button>
+
+        <script>
+            function switchMode() {
+                if(document.body.style.backgroundColor == "white") {
+                    document.body.style.backgroundColor = "black";
+                    document.getElementById("title").style.color = "white";
+                } else {
+                    document.body.style.backgroundColor = "white";
+                    document.getElementById("title").style.color = "black";
+                }
+            }
+        </script>
     </body>
 </html>
