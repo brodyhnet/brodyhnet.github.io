@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html style="font-family: 'Roboto', sans-serif;">
+<head>
+<title>Brody's GarfGen</title>
+	
+<style>
+body {
+  color: #eee;
+  background: #121212;
+}
+
+body a {
+  color: #809fff;
+}
+	</style>
+
+</head>
+<body>
+<center>
+<h1>GarfGen</h1>
+
+<button type="submit" onclick="load()">Generate</button>
+
+<a onClick="nothingf(); return false;" href="">
+	<p><img id="myImg" src="https://picayune.uclick.com/comics/ga/1978/ga780619.gif" onerror="tryjpg()"></p>
+</a>
+
+
+<p id="date"></p>
+
+<p><small>
+<a href="" id="link"> </a>
+</small></p>
+
+
+
+
+
+
+
+
+
+</center>
+
+
+
+<p id="date2" placeholder="not" hidden></p>
+
+<script type = 'text/javascript'>
+load()
+
+var datetoday = new Date();
+
+
+function share() {
+  document.getElementById("link").innerHTML = "Go To Shareable Link";
+}
+
+function load() {
+  var year = Math.floor(Math.random()*45)+1978
+  var month= Math.floor(Math.random()*12)+01
+  var day = Math.floor(Math.random()*31)+1
+  
+  var garfurl = "https://www.brodyh.net/customgarf?m=" + month + "&d=" + day + "&y=" + year
+  document.getElementById("link").href = garfurl;
+  
+  if (10 > month) {
+      month = "0" + month
+  }
+  
+  if (10 > day) {
+      day = "0" + day
+  }
+  yearshrt = String(year).substring(2);
+  
+  var url = "https://picayune.uclick.com/comics/ga/" + year + "/ga" + yearshrt + month + day + ".gif"
+  var garf = "https://garfield.com/comic/" + year + "/" + month + "/" + day
+  var hqgarf = "https://the-eye.eu/public/Comics/Garfield/" + year + "-" + month + "-" + day + ".gif"
+  var garfdate = month + " " + day + " " + year
+  
+  
+  document.getElementById("myImg").src = url;
+  document.getElementById("date").innerHTML = garfdate;
+  document.getElementById("date2").placeholder = hqgarf;
+  
+}
+
+function tryjpg() {
+  var month = document.getElementById("months").value;
+  var day = document.getElementById("days").value;
+  var year = document.getElementById("years").value;
+  
+  
+  if (10 > month) {
+      month = "0" + month
+  }
+  
+  if (10 > day) {
+      day = "0" + day
+  }
+  yearshrt = String(year).substring(2);
+  
+  var url = "https://picayune.uclick.com/comics/ga/" + year + "/ga" + yearshrt + month + day + ".jpg"
+  var garf = "https://garfield.com/comic/" + year + "/" + month + "/" + day
+  var hqgarf = "https://the-eye.eu/public/Comics/Garfield/" + year + "-" + month + "-" + day + ".gif"
+  var garfdate = month + " " + day + " " + year
+  
+  
+  document.getElementById("myImg").src = url;
+  document.getElementById("date").innerHTML = garfdate;
+  document.getElementById("date2").innerHTML = hqgarf;
+  
+}
+
+
+function myFunction() {
+  var hqgarf = document.getElementById("date2").placeholder;
+  document.getElementById("myImg").src = hqgarf;
+}
+
+function nothingf() {
+  var hqgarf = document.getElementById("date2").placeholder;
+}
+
+
+
+
+</script>
